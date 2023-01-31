@@ -221,11 +221,18 @@ After you've successfully opened a pull request and merged changes into the base
 
 ## Cloning and Forking a project
 
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/distributed-repos.jpg)
+
 This is used to take an existing project and make it the **starting point** for your new project
 
 ### Cloning a Project
 
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/clone-origin.jpg)
+
 creates a copy of a repository on your local machine
+
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/repo-code.jpg)
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/code-clone-url.jpg)
 
 **When working with a team** ;
 
@@ -269,15 +276,36 @@ creates a copy of a repository on your local machine
 
     _git pull = git fetch + git merge_
 
+#### Say new Developer joins a new team and wants to collaborate on the Team's project,
+
+This developer can create a identical copy of the remote repo using the **git clone** operation. The remote repo from which the main project is originally cloned from is also referred to as the **origin**.
+
+After cloning the repo to the local machine, the developer can start making changes to the codebase. This could be for tasks like adding features and enhancements or fixing bugs. Typically the developer would use **git branch** to create a branch, _e.g. feature1-branch_, make that branch active using **git checkout** and make changes within that branch - such as by adding or editing files. The developer saves their changes often within the branch by using **git add** followed by **git commit**.
+
+Once the changes for a particular branch are complete, rather than **merging** to the main branch directly, it is often a good practice to **push** the new branch with changes to origin where other developers/reviewers can test/review the changes before merging the branch to main.
+
+#### Every once in a while, a developer may want to get the latest copy of the repo from origin to serve as the base for making changes or reviewing changes by others.
+
+For example, this may be the case after the changes in _feature1-branch_ have been pushed to origin and the peer developer wants to review the code. The **git fetch** command can be used for this purpose.
+
+The **git diff** command can help others reviewing your code to to identify and compare the changes. Once a peer reviewer or project maintainer has reviewed the changes, and is satisfied, the reviewer will **git checkout** the main branch and then **git merge** the new _feature1-branch_, which can then be deleted. After the branch is merged locally, the reviewer can **git push** the updated main branch back to origin.
+
+> NOTE: The git-remote -v command can be used to check which remote repos you are synchronizing push and fetch changes with.
+
+Another option for getting the latest copy of the repo is to use the **git pull** command. _The pull command in effect is a combination of fetch and merge_. That is, using this single command, you can both fetch and merge the changes into your local repo. For example, another developer who wants to use the updated codebase with the feature1 changes that have been merged to main branch in origin, can use the **git pull** command to fetch the updated codebase from origin and merge with his/her local codebase before starting development on a new feature.
+
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/clone-workflow.jpg)
+
 ### Forking a Project
 
 - Takes a copy of a Github repo to use it as a base for a new project without affecting the original project.
 - You can also use forking to submit changes back to the original repo.
 - also used to independently make changes to a project.
+
   - submit a pull request to the original owner and owner decides whether or not to accept your changes.
 
-**_Origin_** refers to your Fork
-**_Upstream_** refers to the original work
+- **_Origin_** refers to your Fork
+- **_Upstream_** refers to the original work
 
 **To keep a fork in sync with the original work from a local clone** means to regularly update your fork with the latest changes made in the original repository.(_This is often done when you have forked a repository to make your own changes, but still want to incorporate changes made by others to the original repository._),
 
