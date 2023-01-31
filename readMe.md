@@ -298,11 +298,15 @@ Another option for getting the latest copy of the repo is to use the **git pull*
 
 ### Forking a Project
 
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/fork.jpg)
+
 - Takes a copy of a Github repo to use it as a base for a new project without affecting the original project.
 - You can also use forking to submit changes back to the original repo.
 - also used to independently make changes to a project.
 
-  - submit a pull request to the original owner and owner decides whether or not to accept your changes.
+> NOTE: The fork option is available only using the web interface and there is no git command to create a fork.
+
+- submit a pull request to the original owner and owner decides whether or not to accept your changes.
 
 - **_Origin_** refers to your Fork
 - **_Upstream_** refers to the original work
@@ -334,6 +338,8 @@ Another option for getting the latest copy of the repo is to use the **git pull*
   git remote -v
   ```
 
+![Alt text](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/IBM-CD0131EN-SkillsNetwork/labs/reading-fork-clone/images/fork-workflow.jpg)
+
 ### Other commands for managing forks
 
 - To grab **upstream** branches
@@ -344,3 +350,9 @@ Another option for getting the latest copy of the repo is to use the **git pull*
   ```s
   git merge upstream/main
   ```
+
+### When to fork or clone?
+
+Typically if you have access to a project repo e.g. as part of a team developing a codebase collaboratively, you can **clone** the repo and synchronize changes from your local copy of the repo using pull and push.
+
+If however there is a public project that you want to contribute to but do not have write access to, or use a public project as a starting point for your own project, you can **fork** the project. Then work with the forked codebase by cloning it to your machine and collaborating with your development team working on the fork using the pull-push synchronization with your fork of the project. But if you want to contribute your changes back to the upstream project (the original project that you forked from), you can submit your changes using a pull request.
