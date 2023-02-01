@@ -356,3 +356,116 @@ Another option for getting the latest copy of the repo is to use the **git pull*
 Typically if you have access to a project repo e.g. as part of a team developing a codebase collaboratively, you can **clone** the repo and synchronize changes from your local copy of the repo using pull and push.
 
 If however there is a public project that you want to contribute to but do not have write access to, or use a public project as a starting point for your own project, you can **fork** the project. Then work with the forked codebase by cloning it to your machine and collaborating with your development team working on the fork using the pull-push synchronization with your fork of the project. But if you want to contribute your changes back to the upstream project (the original project that you forked from), you can submit your changes using a pull request.
+
+# Managing Github Projects
+
+Below are roles involved in managing a project;
+
+### 1. GitHub developer
+
+A developer communicates with other developers using these commands;
+
+```s
+git clone [repository clone URL]
+```
+
+download a copy of the main project to a local machine
+
+```rust
+git pull /*and*/ git fetch /*from the "origin"*/
+```
+
+keeps up-to-date with the upstream
+
+```s
+git push
+```
+
+push your changes to a shared repository if you adopt CVS shared repository workflow
+
+```s
+git format patch
+```
+
+to prepare email submission if you adopt linux cornell's style workflow
+
+```s
+git send email
+```
+
+to send your email submission without corruption by your MUA
+
+```s
+git request pull
+```
+
+to create a summary of changes for your upstream to pull
+
+### 2. GitHub Integrator
+
+An integrator plays the following roles;
+
+- receives changes made by others
+- reviews and responds to pull requests and,
+- publishes the result for others to use.
+
+Integrators use the following commands;
+
+```s
+git am
+```
+
+to apply patches emailed in from your contributors
+
+```s
+git pull
+```
+
+to merge from your trusted lieutenants
+
+```s
+git format patch
+```
+
+to prepare and send suggested alternatives to contributors
+
+```s
+git revert
+```
+
+undo botched commits
+
+```s
+git push
+```
+
+to publish the bleeding edge
+
+### GitHub Repository Administrator
+
+the repo administrator sets up and maintain access to the repository by developers.
+they use the following commands;
+
+```s
+git daemon
+```
+
+allow anonymous download from repository
+
+```s
+git shell
+```
+
+can be used as a restricted login shell for shared central repository users
+
+```s
+git http backend
+```
+
+provides a server-side implementation of Git-over-Http(_smart http_) allowing both **fetch** and **push** services
+
+```s
+gitweb
+```
+
+provides a frontend to git repositories, which can be set-up using the **git-instaweb** script
