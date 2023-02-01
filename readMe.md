@@ -441,7 +441,7 @@ git push
 
 to publish the bleeding edge
 
-### GitHub Repository Administrator
+### 3. GitHub Repository Administrator
 
 the repo administrator sets up and maintain access to the repository by developers.
 they use the following commands;
